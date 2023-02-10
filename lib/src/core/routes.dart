@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:i3t2/src/pages/blank1_page.dart';
 import 'package:i3t2/src/pages/blank2_page.dart';
 import 'package:i3t2/src/pages/blank3_page.dart';
+import 'package:i3t2/src/pages/develop_pages_page.dart';
 import 'package:i3t2/src/pages/empty_page.dart';
 import 'package:i3t2/src/pages/my_home_page.dart';
 import 'package:i3t2/src/pages/pages_page.dart';
@@ -43,6 +44,14 @@ class Routes {
       routing: (context) => const MyHomePage(title: 'ホーム'),
     ),
     PageInfo(
+      name: '開発ページ一覧',
+      description: """
+開発ページ一覧を表示します.
+本番環境では隠蔽してください.""",
+      routeName: '/dev',
+      routing: (context) => const DevelopPagesPage(),
+    ),
+    PageInfo(
       name: 'ページ一覧',
       description: """
 全てのページを表示します.
@@ -80,7 +89,7 @@ class Routes {
       description: """
 白紙ページです.
 これから実装する画面として一旦配置したりできます.""",
-      routeName: '/dev/blank4',
+      routeName: '/dev/blank3',
       routing: (context) => const Blank3Page(title: '白紙3ページ'),
     ),
   ];

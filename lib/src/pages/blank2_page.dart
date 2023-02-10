@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// 白紙2ページ作成
+/// 白紙2ページ
 class Blank2Page extends StatelessWidget {
   const Blank2Page({super.key, required this.title});
   final String title;

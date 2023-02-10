@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:i3t2/src/core/routes.dart';
 
-/// ページ一覧ページ
-/// 開発ページを除く全てのページの一覧
-class PagesPage extends StatelessWidget {
-  const PagesPage({super.key});
+/// 開発ページ一覧ページ
+class DevelopPagesPage extends StatelessWidget {
+  const DevelopPagesPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     final children =
-        Routes.pages.where((page) => !page.routeName.contains('/dev')).map(
+        Routes.pages.where((page) => page.routeName.contains('/dev')).map(
       (page) {
         return ListTile(
           title: Text(page.name),
@@ -20,7 +19,7 @@ class PagesPage extends StatelessWidget {
     ).toList();
     return Scaffold(
       appBar: AppBar(
-        title: const Text('ページ一覧'),
+        title: const Text('開発ページ一覧'),
       ),
       body: ListView(
         children: children,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// 空ページ作成
+/// 空ページ
 class EmptyPage extends StatelessWidget {
   const EmptyPage({super.key, required this.title});
   final String title;
