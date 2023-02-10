@@ -6,6 +6,6 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(initialRoute: '/dev/blank1', routes: Routes.routes);
+    return MaterialApp(initialRoute: '/dev/pages', routes: Routes.routes);
   }
 }
