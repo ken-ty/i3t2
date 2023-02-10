@@ -7,27 +7,15 @@ class PagesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final children = [
-    //   ListTile(
-    //     title: const Text("ホーム"),
-    //     onTap: () => Navigator.pushNamed(context, '/home'),
-    //   )
-    // ];
-    final children = Routes.routes.keys.map(
-      (routeName) {
+    final children = Routes.pages.map(
+      (page) {
         return ListTile(
-          title: Text(routeName),
-          // Navigator.pushNamed(context, routeName)
-          onTap: () => Navigator.pushNamed(context, routeName),
+          title: Text(page.name),
+          subtitle: Text(page.routeName),
+          onTap: () => Navigator.pushNamed(context, page.routeName),
         );
       },
     ).toList();
-    //  [
-    //   ListTile(
-    //     title: const Text("ホーム"),
-    //     onTap: () => Navigator.pushNamed(context, '/home'),
-    //   )
-    // ];
     return Scaffold(
       appBar: AppBar(
         title: const Text('ページ一覧'),
@@ -38,6 +26,3 @@ class PagesPage extends StatelessWidget {
     );
   }
 }
-
-        // Routes.routes.keys.map((e) => ListTile()).toList()
-      
