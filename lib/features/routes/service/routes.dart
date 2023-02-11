@@ -1,34 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:i3t2/src/pages/blank1_page.dart';
-import 'package:i3t2/src/pages/blank2_page.dart';
-import 'package:i3t2/src/pages/blank3_page.dart';
-import 'package:i3t2/src/pages/develop_pages_page.dart';
-import 'package:i3t2/src/pages/empty_page.dart';
-import 'package:i3t2/src/pages/my_home_page.dart';
-import 'package:i3t2/src/pages/pages_page.dart';
-
-/// ページ情報
-class PageInfo {
-  /// コンストラクタ
-  PageInfo({
-    required this.name,
-    required this.description,
-    required this.routeName,
-    required this.routing,
-  });
-
-  /// ページ名
-  String name;
-
-  /// ページの説明
-  String description;
-
-  /// ルート名
-  String routeName;
-
-  /// ルーティング
-  WidgetBuilder routing;
-}
+import 'package:i3t2/features/blank/ui/blank1_page.dart';
+import 'package:i3t2/features/blank/ui/blank2_page.dart';
+import 'package:i3t2/features/blank/ui/blank3_page.dart';
+import 'package:i3t2/features/routes/entity/page_info.dart';
+import 'package:i3t2/features/routes/ui/develop_pages_page.dart';
+import 'package:i3t2/features/empty/ui/empty_page.dart';
+import 'package:i3t2/features/counter/my_home_page.dart';
+import 'package:i3t2/features/routes/ui/pages_page.dart';
 
 /// ルーティング管理
 /// 基本的にインスタンス化せずに利用します
@@ -95,10 +73,11 @@ class Routes {
   ];
 
   /// 初期ページのルート名
-  static const initialRoute = '/home';
+  static const String initialRoute = '/home';
 
   /// ルーティング一覧
-  static final routes = Map.fromIterables(
+  static final Map<String, Widget Function(BuildContext)> routes =
+      Map.fromIterables(
     pages.map((e) => e.routeName),
     pages.map((e) => e.routing),
   );

@@ -43,6 +43,14 @@ class _MyHomePageState extends State<MyHomePage> {
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ),
+      bottomNavigationBar: BottomNavigationBar(
+        // onTap: (value) => Navigator().,
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'ホーム'),
+          BottomNavigationBarItem(icon: Icon(Icons.settings), label: '設定'),
+          BottomNavigationBarItem(icon: Icon(Icons.settings), label: '設定'),
+        ],
+      ),
     );
   }
 }
