@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:i3t2/features/routes/service/routes.dart';
 
-/// 開発ページ一覧ページ
-class DevelopPagesPage extends StatelessWidget {
-  const DevelopPagesPage({super.key});
+/// 開発ページ一覧ページの Controller
+class DevelopPagesPageController extends StatelessWidget {
+  const DevelopPagesPageController({super.key});
 
   @override
   Widget build(BuildContext context) {

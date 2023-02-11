@@ -44,11 +44,19 @@ class _MyHomePageState extends State<MyHomePage> {
         child: const Icon(Icons.add),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        // onTap: (value) => Navigator().,
+        onTap: (selectButtonIndex) {
+          switch (selectButtonIndex) {
+            case 0:
+              Navigator.pushNamed(context, '/home');
+              break;
+            case 1:
+              Navigator.pushNamed(context, '/dev');
+              break;
+          }
+        },
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'ホーム'),
-          BottomNavigationBarItem(icon: Icon(Icons.settings), label: '設定'),
-          BottomNavigationBarItem(icon: Icon(Icons.settings), label: '設定'),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'ホーム'),
+          BottomNavigationBarItem(icon: Icon(Icons.settings), label: '開発'),
         ],
       ),
     );
