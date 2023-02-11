@@ -15,15 +15,14 @@ class _CommonBottomNavigationBarState extends State<CommonBottomNavigationBar> {
   /// アプリで利用するナビゲーション の状態
   _CommonBottomNavigationBarState();
 
-  /// 初期表示の index
-  int _initIndex = 0;
+  /// 初期表示を反映したか
+  bool _completeInit = false;
 
   /// 現在の選択しているボタンの index
   int _currentIndex = 0;
 
   /// ボタンタップアクション
   void _buttonTap(int index) {
-    _currentIndex = index;
     switch (index) {
       case 0:
         Navigator.pushNamed(context, '/home');
@@ -32,18 +31,16 @@ class _CommonBottomNavigationBarState extends State<CommonBottomNavigationBar> {
         Navigator.pushNamed(context, '/dev');
         break;
     }
-    setState(() => {});
-  }
-
-  @override
-  void initState() {
-    _currentIndex = _initIndex;
-    super.initState();
+    setState(() => _currentIndex = index);
   }
 
   @override
   Widget build(BuildContext context) {
-    _initIndex = widget.initSelectIndex;
+    // 初期表示反映
+    if (!_completeInit) {
+      _currentIndex = widget.initSelectIndex;
+      _completeInit = true;
+    }
     return BottomNavigationBar(
       currentIndex: _currentIndex,
       onTap: (nextIndex) => _buttonTap(nextIndex),
