@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:i3t2/features/counter/ui/my_home_controller.dart';
+import 'package:i3t2/features/navigation/ui/common_bottom_navigation_bar.dart';
 
 // マイホームページ
 class MyHomePage extends StatefulWidget {
@@ -11,6 +13,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  final _controller = const MyHomePageController();
 
   void _incrementCounter() {
     setState(() {
@@ -43,22 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        onTap: (selectButtonIndex) {
-          switch (selectButtonIndex) {
-            case 0:
-              Navigator.pushNamed(context, '/home');
-              break;
-            case 1:
-              Navigator.pushNamed(context, '/dev');
-              break;
-          }
-        },
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'ホーム'),
-          BottomNavigationBarItem(icon: Icon(Icons.settings), label: '開発'),
-        ],
-      ),
+      bottomNavigationBar: const CommonBottomNavigationBar(),
     );
   }
 }

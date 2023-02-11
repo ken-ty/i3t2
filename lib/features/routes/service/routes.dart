@@ -5,7 +5,7 @@ import 'package:i3t2/features/blank/ui/blank3_page.dart';
 import 'package:i3t2/features/routes/entity/page_info.dart';
 import 'package:i3t2/features/routes/ui/develop_pages/develop_pages_page.dart';
 import 'package:i3t2/features/empty/ui/empty_page.dart';
-import 'package:i3t2/features/counter/my_home_page.dart';
+import 'package:i3t2/features/counter/ui/my_home_page.dart';
 import 'package:i3t2/features/routes/ui/pages/pages_page.dart';
 
 /// ルーティング管理
