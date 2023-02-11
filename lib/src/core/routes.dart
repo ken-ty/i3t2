@@ -95,7 +95,7 @@ class Routes {
   ];
 
   /// 初期ページのルート名
-  static const initialRoute = '/dev/pages';
+  static const initialRoute = '/home';
 
   /// ルーティング一覧
   static final routes = Map.fromIterables(
