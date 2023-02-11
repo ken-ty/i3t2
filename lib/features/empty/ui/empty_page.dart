@@ -1,14 +1,21 @@
 import 'package:flutter/material.dart';
 
-/// 空ページ
 class EmptyPage extends StatelessWidget {
-  const EmptyPage({super.key, required this.title});
+  /// ページタイトル
   final String title;
+
+  /// appBar を表示するかどうか
+  final bool visibleAppBar;
+
+  /// 空ページ
+  const EmptyPage({
+    super.key,
+    this.title = "空ページ",
+    this.visibleAppBar = true,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text(title)),
-    );
+    return Scaffold(appBar: visibleAppBar ? AppBar(title: Text(title)) : null);
   }
 }
