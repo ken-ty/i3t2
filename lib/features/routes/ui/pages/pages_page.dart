@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:i3t2/features/navigation/ui/common_bottom_navigation_bar.dart';
 import 'package:i3t2/features/routes/ui/pages/pages_page_controller.dart';
 
 /// ページ一覧ページ View
@@ -26,6 +27,7 @@ class PagesPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: const Text('ページ一覧')),
       body: ListView(children: pageListTitles),
+      bottomNavigationBar: const CommonBottomNavigationBar(initSelectIndex: 1),
     );
   }
 }
