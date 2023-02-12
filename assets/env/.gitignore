@@ -1,6 +1,7 @@
 # 環境変数は git 管理しない
-*.env
-*.env.*
+.env
+.env.production
+.env.staging
 
 # 環境変数設定テンプレートのみ git 管理する
 !.env.template
