@@ -1,14 +1,17 @@
 import 'dart:convert';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 
 /// ChatGPT の API クライアント
 class ChatGPTApi {
+  /// APIキー
+  final String? _apiKey = dotenv.env['CHAT_GPT_API_KEY'];
+
   /// ひとまず API を コールする
   void apiCall() async {
     var headers = {
       'Content-Type': 'application/json',
-      'Authorization':
-          'Bearer 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'
+      'Authorization': 'Bearer $_apiKey'
     };
     var request = http.Request(
         'POST', Uri.parse('https://api.openai.com/v1/completions'));
@@ -24,18 +27,12 @@ class ChatGPTApi {
     });
     request.headers.addAll(headers);
 
-    try {
-      http.StreamedResponse response = await request.send();
+    http.StreamedResponse response = await request.send();
 
-      if (response.statusCode == 200) {
-        print(await response.stream.bytesToString());
-      } else {
-        print(response.reasonPhrase);
-      }
-    } catch (e) {
-      print("try catch でエラー取得 a");
-      print(e);
-      print("try catch でエラー取得 b");
+    if (response.statusCode == 200) {
+      print(await response.stream.bytesToString());
+    } else {
+      print(response.reasonPhrase);
     }
   }
 }
