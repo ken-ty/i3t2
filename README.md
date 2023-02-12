@@ -6,6 +6,17 @@ I3T2 is identify the task !
 
 ## 紹介
 
+### できること
+
+- 画面の一覧・詳細表示
+- APIの一覧・詳細表示
+- DBの一覧・詳細表示
+- 機能の一覧・詳細表示
+
+- 画面, API, DB, 機能 の見積もり・設計用分析データ CSV 出力
+
+### 画面イメージ
+
 | 画面一覧 | API一覧 | DB一覧 | 機能一覧 |
 | --- | --- | --- | --- |
 | ![画面一覧](assets/images/readme/i3t2_pages.png) |  ![API一覧](assets/images/readme/i3t2_pages.png) |  ![DB一覧](assets/images/readme/i3t2_pages.png) |  ![機能一覧](assets/images/readme/i3t2_pages.png) | 
@@ -15,6 +26,8 @@ I3T2 is identify the task !
 | ![画面詳細](assets/images/readme/i3t2_pages.png) |  ![API詳細](assets/images/readme/i3t2_pages.png) |  ![DB詳細](assets/images/readme/i3t2_pages.png) |  ![機能詳細](assets/images/readme/i3t2_pages.png) | 
 
 ### 基底クラス
+
+以下の基底クラスを継承してプロジェクト作成を進行してください。
 
 | 基底クラス名 | 役割 |
 | --- | --- |
