@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:i3t2/features/blank/ui/blank1_page.dart';
 import 'package:i3t2/features/blank/ui/blank2_page.dart';
 import 'package:i3t2/features/blank/ui/blank3_page.dart';
+import 'package:i3t2/features/csv/ui/export_csv_page.dart';
 import 'package:i3t2/features/others/ui/others_page.dart';
 import 'package:i3t2/features/routes/entity/page_info.dart';
 import 'package:i3t2/features/routes/ui/develop_pages/develop_pages_page.dart';
@@ -50,7 +51,7 @@ migration もできるようにしたいです.""",
       description: """
 画面一覧, IF一覧, DB一覧, 機能一覧 の 見積もり・設計データをエクスポートします.""",
       routeName: '/export_csv',
-      routing: (context) => const EmptyPage(title: 'CSV 出力'),
+      routing: (context) => const ExportCSVPage(),
     ),
     PageInfo(
       name: 'その他',
