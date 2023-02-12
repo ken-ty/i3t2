@@ -22,6 +22,36 @@ class Routes {
       routing: (context) => const MyHomePage(title: 'ホーム'),
     ),
     PageInfo(
+      name: 'API 一覧',
+      description: """
+APIの一覧ページです.""",
+      routeName: '/apis',
+      routing: (context) => const EmptyPage(title: 'API 一覧'),
+    ),
+    PageInfo(
+      name: 'DB 一覧',
+      description: """
+DBの構成を一覧できます.
+migration もできるようにしたいです.""",
+      routeName: '/db',
+      routing: (context) => const EmptyPage(title: 'DB 一覧'),
+    ),
+    PageInfo(
+      name: '機能一覧',
+      description: """
+機能一覧です.
+機能の有効/無効を調整できるようにしたいです.""",
+      routeName: '/features',
+      routing: (context) => const EmptyPage(title: '機能一覧'),
+    ),
+    PageInfo(
+      name: 'CSV 出力',
+      description: """
+画面一覧, IF一覧, DB一覧, 機能一覧 の 見積もり・設計データをエクスポートします.""",
+      routeName: '/export_csv',
+      routing: (context) => const EmptyPage(title: 'CSV 出力'),
+    ),
+    PageInfo(
       name: '開発ページ一覧',
       description: """
 開発ページ一覧を表示します.

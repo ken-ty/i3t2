@@ -28,7 +28,16 @@ class _CommonBottomNavigationBarState extends State<CommonBottomNavigationBar> {
         Navigator.pushNamed(context, '/home');
         break;
       case 1:
-        Navigator.pushNamed(context, '/dev');
+        Navigator.pushNamed(context, '/apis');
+        break;
+      case 2:
+        Navigator.pushNamed(context, '/db');
+        break;
+      case 3:
+        Navigator.pushNamed(context, '/features');
+        break;
+      case 4:
+        Navigator.pushNamed(context, '/dev'); // /settings
         break;
     }
     setState(() => _currentIndex = index);
@@ -42,12 +51,18 @@ class _CommonBottomNavigationBarState extends State<CommonBottomNavigationBar> {
       _completeInit = true;
     }
     return BottomNavigationBar(
-      currentIndex: _currentIndex,
-      onTap: (nextIndex) => _buttonTap(nextIndex),
       items: const [
         BottomNavigationBarItem(icon: Icon(Icons.home), label: 'ホーム'),
-        BottomNavigationBarItem(icon: Icon(Icons.settings), label: '開発'),
+        BottomNavigationBarItem(icon: Icon(Icons.api), label: 'API'),
+        BottomNavigationBarItem(icon: Icon(Icons.data_array), label: 'DB'),
+        BottomNavigationBarItem(icon: Icon(Icons.functions), label: '機能'),
+        BottomNavigationBarItem(icon: Icon(Icons.settings), label: '設定'),
       ],
+      currentIndex: _currentIndex,
+      onTap: (nextIndex) => _buttonTap(nextIndex),
+      type: BottomNavigationBarType.shifting,
+      unselectedItemColor: Theme.of(context).disabledColor,
+      selectedItemColor: Theme.of(context).colorScheme.secondary,
     );
   }
 }

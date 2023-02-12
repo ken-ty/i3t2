@@ -21,7 +21,7 @@ class DevelopPagesPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: const Text('開発ページ一覧')),
       body: ListView(children: children),
-      bottomNavigationBar: const CommonBottomNavigationBar(initSelectIndex: 1),
+      bottomNavigationBar: const CommonBottomNavigationBar(initSelectIndex: 4),
     );
   }
 }

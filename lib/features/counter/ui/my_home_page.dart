@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:i3t2/apis/chat_gpt_hoge.dart';
+import 'package:i3t2/apis/chat_gpt_api.dart';
 import 'package:i3t2/features/counter/ui/my_home_controller.dart';
 import 'package:i3t2/features/navigation/ui/common_bottom_navigation_bar.dart';
 
