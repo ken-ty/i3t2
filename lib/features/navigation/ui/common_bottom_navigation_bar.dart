@@ -37,7 +37,7 @@ class _CommonBottomNavigationBarState extends State<CommonBottomNavigationBar> {
         Navigator.pushNamed(context, '/features');
         break;
       case 4:
-        Navigator.pushNamed(context, '/dev'); // /settings
+        Navigator.pushNamed(context, '/others');
         break;
     }
     setState(() => _currentIndex = index);

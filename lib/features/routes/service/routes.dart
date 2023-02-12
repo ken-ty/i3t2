@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:i3t2/features/blank/ui/blank1_page.dart';
 import 'package:i3t2/features/blank/ui/blank2_page.dart';
 import 'package:i3t2/features/blank/ui/blank3_page.dart';
+import 'package:i3t2/features/others/ui/others_page.dart';
 import 'package:i3t2/features/routes/entity/page_info.dart';
 import 'package:i3t2/features/routes/ui/develop_pages/develop_pages_page.dart';
 import 'package:i3t2/features/empty/ui/empty_page.dart';
@@ -11,8 +12,8 @@ import 'package:i3t2/features/routes/ui/pages/pages_page.dart';
 /// ルーティング管理
 /// 基本的にインスタンス化せずに利用します
 class Routes {
-  /// ページテーブル
-  static final pages = <PageInfo>[
+  /// 全てのページテーブル
+  static final List<PageInfo> pages = <PageInfo>[
     PageInfo(
       name: 'ホーム',
       description: """
@@ -50,6 +51,13 @@ migration もできるようにしたいです.""",
 画面一覧, IF一覧, DB一覧, 機能一覧 の 見積もり・設計データをエクスポートします.""",
       routeName: '/export_csv',
       routing: (context) => const EmptyPage(title: 'CSV 出力'),
+    ),
+    PageInfo(
+      name: 'その他',
+      description: """
+その他のページです""",
+      routeName: '/others',
+      routing: (context) => const OthersPage(),
     ),
     PageInfo(
       name: '開発ページ一覧',
@@ -101,6 +109,38 @@ migration もできるようにしたいです.""",
       routing: (context) => const Blank3Page(title: '白紙3ページ'),
     ),
   ];
+
+  /// 開発用ページのテーブル
+  static final List<PageInfo> developPages =
+      pages.where((page) => page.routeName.contains('/dev')).toList();
+
+  /// 開発用ページが抜かれたテーブル
+  static final List<PageInfo> nonDevelopPages =
+      pages.where((page) => !page.routeName.contains('/dev')).toList();
+
+  /// 下部ナビバーに設定しているページのテーブル
+  static final List<PageInfo> bottomNavigationBarPages = pages.where((page) {
+    final List<String> bottomNavigationBarPagesRouteNames = <String>[
+      '/home',
+      '/apis',
+      '/db',
+      '/features',
+      '/others',
+    ];
+    return bottomNavigationBarPagesRouteNames.contains(page.routeName);
+  }).toList();
+
+  /// 下部ナビバーに設定していないページのテーブル
+  static final List<PageInfo> nonBottomNavigationBarPages = pages.where((page) {
+    final List<String> bottomNavigationBarPagesRouteNames = <String>[
+      '/home',
+      '/apis',
+      '/db',
+      '/features',
+      '/others',
+    ];
+    return !bottomNavigationBarPagesRouteNames.contains(page.routeName);
+  }).toList();
 
   /// 初期ページのルート名
   static const String initialRoute = '/home';
