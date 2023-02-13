@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:i3t2/features/blank/ui/blank1_page.dart';
 import 'package:i3t2/features/blank/ui/blank2_page.dart';
 import 'package:i3t2/features/blank/ui/blank3_page.dart';
+import 'package:i3t2/features/csv/ui/export_csv_page.dart';
+import 'package:i3t2/features/others/ui/others_page.dart';
 import 'package:i3t2/features/routes/entity/page_info.dart';
 import 'package:i3t2/features/routes/ui/develop_pages/develop_pages_page.dart';
 import 'package:i3t2/features/empty/ui/empty_page.dart';
@@ -11,8 +13,8 @@ import 'package:i3t2/features/routes/ui/pages/pages_page.dart';
 /// ルーティング管理
 /// 基本的にインスタンス化せずに利用します
 class Routes {
-  /// ページテーブル
-  static final pages = <PageInfo>[
+  /// 全てのページテーブル
+  static final List<PageInfo> pages = <PageInfo>[
     PageInfo(
       name: 'ホーム',
       description: """
@@ -20,6 +22,43 @@ class Routes {
 初期のカウンター機能のままです.""",
       routeName: '/home',
       routing: (context) => const MyHomePage(title: 'ホーム'),
+    ),
+    PageInfo(
+      name: 'API 一覧',
+      description: """
+APIの一覧ページです.""",
+      routeName: '/apis',
+      routing: (context) => const EmptyPage(title: 'API 一覧'),
+    ),
+    PageInfo(
+      name: 'DB 一覧',
+      description: """
+DBの構成を一覧できます.
+migration もできるようにしたいです.""",
+      routeName: '/db',
+      routing: (context) => const EmptyPage(title: 'DB 一覧'),
+    ),
+    PageInfo(
+      name: '機能一覧',
+      description: """
+機能一覧です.
+機能の有効/無効を調整できるようにしたいです.""",
+      routeName: '/features',
+      routing: (context) => const EmptyPage(title: '機能一覧'),
+    ),
+    PageInfo(
+      name: 'CSV 出力',
+      description: """
+画面一覧, IF一覧, DB一覧, 機能一覧 の 見積もり・設計データをエクスポートします.""",
+      routeName: '/export_csv',
+      routing: (context) => ExportCSVPage(),
+    ),
+    PageInfo(
+      name: 'その他',
+      description: """
+その他のページです""",
+      routeName: '/others',
+      routing: (context) => const OthersPage(),
     ),
     PageInfo(
       name: '開発ページ一覧',
@@ -71,6 +110,38 @@ class Routes {
       routing: (context) => const Blank3Page(title: '白紙3ページ'),
     ),
   ];
+
+  /// 開発用ページのテーブル
+  static final List<PageInfo> developPages =
+      pages.where((page) => page.routeName.contains('/dev')).toList();
+
+  /// 開発用ページが抜かれたテーブル
+  static final List<PageInfo> nonDevelopPages =
+      pages.where((page) => !page.routeName.contains('/dev')).toList();
+
+  /// 下部ナビバーに設定しているページのテーブル
+  static final List<PageInfo> bottomNavigationBarPages = pages.where((page) {
+    final List<String> bottomNavigationBarPagesRouteNames = <String>[
+      '/home',
+      '/apis',
+      '/db',
+      '/features',
+      '/others',
+    ];
+    return bottomNavigationBarPagesRouteNames.contains(page.routeName);
+  }).toList();
+
+  /// 下部ナビバーに設定していないページのテーブル
+  static final List<PageInfo> nonBottomNavigationBarPages = pages.where((page) {
+    final List<String> bottomNavigationBarPagesRouteNames = <String>[
+      '/home',
+      '/apis',
+      '/db',
+      '/features',
+      '/others',
+    ];
+    return !bottomNavigationBarPagesRouteNames.contains(page.routeName);
+  }).toList();
 
   /// 初期ページのルート名
   static const String initialRoute = '/home';

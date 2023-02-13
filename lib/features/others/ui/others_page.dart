@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:i3t2/features/navigation/ui/common_bottom_navigation_bar.dart';
 import 'package:i3t2/features/routes/service/routes.dart';
 
-/// 開発ページ一覧ページの View
-class DevelopPagesPage extends StatelessWidget {
-  const DevelopPagesPage({super.key});
+/// その他ページの View
+class OthersPage extends StatelessWidget {
+  const OthersPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final children =
-        Routes.pages.where((page) => page.routeName.contains('/dev')).map(
+    final children = Routes.nonBottomNavigationBarPages.map(
       (page) {
         return ListTile(
           title: Text(page.name),
@@ -19,7 +18,10 @@ class DevelopPagesPage extends StatelessWidget {
       },
     ).toList();
     return Scaffold(
-      appBar: AppBar(title: const Text('開発ページ一覧')),
+      appBar: AppBar(
+        title: const Text('その他ページ'),
+        automaticallyImplyLeading: false,
+      ),
       body: ListView(children: children),
       bottomNavigationBar: const CommonBottomNavigationBar(initSelectIndex: 4),
     );
