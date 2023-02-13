@@ -51,7 +51,7 @@ migration もできるようにしたいです.""",
       description: """
 画面一覧, IF一覧, DB一覧, 機能一覧 の 見積もり・設計データをエクスポートします.""",
       routeName: '/export_csv',
-      routing: (context) => const ExportCSVPage(),
+      routing: (context) => ExportCSVPage(),
     ),
     PageInfo(
       name: 'その他',
